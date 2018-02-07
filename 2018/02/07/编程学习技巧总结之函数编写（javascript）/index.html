@@ -8,13 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>编程学习技巧总结之函数编写（javascript） | skyuyuni</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="编程学习技巧总结之函数编写（javascript）：一、函数的编写，先整体后局部。编程语言从语言学来讲，也可以称为是一门外语。这门语言是专门和机器打交道的，同时也是程序员之间交流的一种媒介。在我开始学习会有很多的不习惯，有些是新的思维建立，不好理解，但它确实就是这样的。好在编程也是一门讲究逻辑的艺术，对错分明，没有任何的中间地带。在英语思维环境下的人，相比处于中文环境的我是有一定优势的。但我想我可">
+<meta name="keywords" content="函数编写">
+<meta property="og:type" content="article">
 <meta property="og:title" content="编程学习技巧总结之函数编写（javascript）">
 <meta property="og:url" content="http://yoursite.com/2018/02/07/编程学习技巧总结之函数编写（javascript）/index.html">
 <meta property="og:site_name" content="skyuyuni">
-<meta property="og:updated_time" content="2018-02-07T12:46:47.484Z">
+<meta property="og:description" content="编程学习技巧总结之函数编写（javascript）：一、函数的编写，先整体后局部。编程语言从语言学来讲，也可以称为是一门外语。这门语言是专门和机器打交道的，同时也是程序员之间交流的一种媒介。在我开始学习会有很多的不习惯，有些是新的思维建立，不好理解，但它确实就是这样的。好在编程也是一门讲究逻辑的艺术，对错分明，没有任何的中间地带。在英语思维环境下的人，相比处于中文环境的我是有一定优势的。但我想我可">
+<meta property="og:updated_time" content="2018-02-07T12:54:05.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编程学习技巧总结之函数编写（javascript）">
+<meta name="twitter:description" content="编程学习技巧总结之函数编写（javascript）：一、函数的编写，先整体后局部。编程语言从语言学来讲，也可以称为是一门外语。这门语言是专门和机器打交道的，同时也是程序员之间交流的一种媒介。在我开始学习会有很多的不习惯，有些是新的思维建立，不好理解，但它确实就是这样的。好在编程也是一门讲究逻辑的艺术，对错分明，没有任何的中间地带。在英语思维环境下的人，相比处于中文环境的我是有一定优势的。但我想我可">
   
     <link rel="alternative" href="/atom.xml" title="skyuyuni" type="application/atom+xml">
   
@@ -154,7 +158,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="n-编程学习技巧总结之函数编写（javascript）" class="article article-type-n " itemscope itemprop="blogPost">
+            <article id="post-编程学习技巧总结之函数编写（javascript）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -174,7 +178,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="编程学习技巧总结之函数编写（javascript）："><a href="#编程学习技巧总结之函数编写（javascript）：" class="headerlink" title="编程学习技巧总结之函数编写（javascript）："></a>编程学习技巧总结之函数编写（javascript）：</h4><h4 id="一、函数的编写，先整体后局部。"><a href="#一、函数的编写，先整体后局部。" class="headerlink" title="一、函数的编写，先整体后局部。"></a>一、函数的编写，先整体后局部。</h4><p>编程语言从语言学来讲，也可以称为是一门外语。这门语言是专门和机器打交道的，同时也是程序员之间交流的一种媒介。在我开始学习会有很多的不习惯，有些是新的思维建立，不好理解，但它确实就是这样的。好在编程也是一门讲究逻辑的艺术，对错分明，没有任何的中间地带。在英语思维环境下的人，相比处于中文环境的我是有一定优势的。但我想我可以利用好中文与英文的对应关系学好编程。<a id="more"></a></p>
+<p>举个例子，在看到这样一个函数时，从来没有学习过javascript的人是不明白的。整个函数翻译成中文的意思是，从某个整数范围内随机选择一个值。在这里我意思到准确的将英文与中文准确挂钩的重要性，也是能否深入的理解编程含义所在。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectFrom</span>(<span class="params">lowerValue,upperValue</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> choices = upperValue-lowerValue+<span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*choices+lowerValue);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> num = selectFrom(<span class="number">2</span>,<span class="number">10</span>);</div><div class="line">alert(num);</div></pre></td></tr></table></figure>
+<p>必要的注释就是一个好习惯，也是一个很好的方法。这个特别是对于刚接触编程语言的人来说尤其重要。方便自己也方便别人，能第一时间理解代码间的逻辑关系和输出结果，对于DEBUG也是至关重要的。在这里将前面函数的每行代码逐一翻译为中文注释，分析下是什么意思。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//某个整数范围内的随机值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectFrom</span>(<span class="params">lowerValue,upperValue</span>) </span>&#123; <span class="comment">//命名为selectFrom的一个函数function，参数写在括号里。lowerValue表示最小值，upperValue表示最大值。</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> choices = upperValue-lowerValue+<span class="number">1</span>; <span class="comment">//命名一个变量为choices，赋值结果为upperValue最大值减去lowerValue最小值，然后加1的个数。</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*choices+lowerValue);<span class="comment">//Math.random()表示随机返回大于等于0小于1的整数，Math.floor()表示向下舍入，return是返回最后的结果。</span></div><div class="line">&#125;<span class="comment">//大括号将整个函数包裹起来，也就是封装，可以重复使用。</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = selectFrom(<span class="number">2</span>,<span class="number">10</span>);<span class="comment">//命名一个变量为num，赋值为selectFrom(2,10)，括号中的数字表示算出2到10的整数范围内的随机值。</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alert(num);<span class="comment">//输出num的结果。</span></div></pre></td></tr></table></figure>
+<h4 id="二、英文与中文的挂钩，牢靠理解"><a href="#二、英文与中文的挂钩，牢靠理解" class="headerlink" title="二、英文与中文的挂钩，牢靠理解"></a>二、英文与中文的挂钩，牢靠理解</h4><p>从上面函数的注释看，对于学习编程的我就更好理解了。英文<strong>function</strong>对应中文<strong>函数</strong>，英文<strong>var</strong>对应中文<strong>命名</strong>，当然对应中文<strong>取名</strong>也可以，英文<strong>return</strong>对应中文<strong>返回</strong>这样的中英文对照关系等等。在理解遵守编程语言的规范，形成自己大脑里的一套与英文编程语言相对应的中文编程语言。虽然无法用中文直接编程，但是对于理解英文编程就很好了。</p>
+<p>换个角度来说就和我们日常学习英文是一样的。我们在学习英文的同时，也会有中文与之相对应，这个翻译的过程可以是在大脑里，也可以写出来。这样我们就能理解这个单词的意思了。最后当词汇量达到一定的数量时，理解遵守英文语句的语法，那么自然我们就可以写出英文文章。反之看到中文我们就能翻译成中文，这也是英文词汇量的重要性，更多的英文单词对应更多的中文文字。</p>
+<p>对于编程，我们在学习编程语言的同时，也会有中文与之相对应。当学习编程语言的深入，理解也越来越深。写代码的时间也会缩短，因为我们将英文与中文进行挂钩，马上就能理解代码的意思，写出想要的结果的代码。就像说出<strong>var</strong>我就知道是<strong>命名</strong>，<strong>命名</strong>就是<strong>var</strong>的意思。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>学习一门编程语言就和学习一门外语一样，编程语言的语法含义，编程的语言规范这些都是我要学习的。现在还只是开始，长路漫漫，多多指教。</p>
+
       
 
       
@@ -203,6 +220,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">函数编写</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -388,11 +416,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DOM编程艺术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaScript简史</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DOM编程艺术</a>
+                <a href="javascript:void(0)" class="js-tag color5">函数编写</a>
               </li>
             
             <div class="clearfix"></div>
