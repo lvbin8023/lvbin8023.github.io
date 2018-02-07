@@ -6,21 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>《JavaScript DOM编程艺术》整理笔记! | skyuyuni</title>
+  <title>Archives: 2018/2 | skyuyuni</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="《JavaScript DOM编程艺术》真是入门js的神书，非常推荐想入门的去看这本书。本篇文章主要是记录自己学习的一些笔记和代码实例。">
-<meta name="keywords" content="DOM编程艺术">
-<meta property="og:type" content="article">
-<meta property="og:title" content="《JavaScript DOM编程艺术》整理笔记!">
-<meta property="og:url" content="http://yoursite.com/2017/06/14/new-article-1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="skyuyuni">
+<meta property="og:url" content="http://yoursite.com/archives/2018/02/index.html">
 <meta property="og:site_name" content="skyuyuni">
-<meta property="og:description" content="《JavaScript DOM编程艺术》真是入门js的神书，非常推荐想入门的去看这本书。本篇文章主要是记录自己学习的一些笔记和代码实例。">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/new-article-1/new-article-1/Image%20Gallery.png">
-<meta property="og:updated_time" content="2018-01-25T03:17:14.693Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《JavaScript DOM编程艺术》整理笔记!">
-<meta name="twitter:description" content="《JavaScript DOM编程艺术》真是入门js的神书，非常推荐想入门的去看这本书。本篇文章主要是记录自己学习的一些笔记和代码实例。">
-<meta name="twitter:image" content="http://yoursite.com/2017/06/14/new-article-1/new-article-1/Image%20Gallery.png">
+<meta name="twitter:title" content="skyuyuni">
   
     <link rel="alternative" href="/atom.xml" title="skyuyuni" type="application/atom+xml">
   
@@ -160,210 +153,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-new-article-1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      《JavaScript DOM编程艺术》整理笔记!
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-n">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/02/07/编程学习技巧总结之函数编写（javascript）/" class="archive-article-date">
+  	<time datetime="2018-02-07T12:46:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/02/07/编程学习技巧总结之函数编写（javascript）/">编程学习技巧总结之函数编写（javascript）</a>
     </h1>
   
 
-        
-        <a href="/2017/06/14/new-article-1/" class="archive-article-date">
-  	<time datetime="2017-06-14T02:16:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>《JavaScript DOM编程艺术》真是入门js的神书，非常推荐想入门的去看这本书。本篇文章主要是记录自己学习的一些笔记和代码实例。<a id="more"></a></p>
-<p><strong>一、前五章</strong></p>
-<p>前五章主要通过DOM和html以及css创建了个能实现基本功能需求的图片库</p>
-<p>主要介绍了js的历史，js的基础语法和DOM的操作和一个简单的图片库的案例研究</p>
-<p><strong>1.HTML</strong></p>
-<p>1.1图片库案例的第一版html代码，没有什么值得注意的地方。很简单。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">1 <span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line">2 <span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">3   <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">4     <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">5      <span class="tag">&lt;<span class="name">title</span>&gt;</span>Image Gallery<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">6      <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"layout.css"</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span></div><div class="line">7      <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">8   <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">9     <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Snapshots<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">10      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">11       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">12        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"fireworks.png"</span> <span class="attr">title</span>=<span class="string">"A fireworks display"</span>&gt;</span>Fireworks<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">13       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">14       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">15        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"coffee.png"</span> <span class="attr">title</span>=<span class="string">"A cup of black coffee"</span>&gt;</span>Coffee<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">16       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">17       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">18        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"rose.png"</span> <span class="attr">title</span>=<span class="string">"A red,red rose"</span>&gt;</span>Rose<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">19       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">20       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">21        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"bigben.png"</span> <span class="attr">title</span>=<span class="string">"The famous clock"</span>&gt;</span>Big ben<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">22       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">23      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">24    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"placeholder"</span> <span class="attr">src</span>=<span class="string">"avatar.png"</span> <span class="attr">alt</span>=<span class="string">"my image gallery"</span>&gt;</span></div><div class="line">25    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"description"</span>&gt;</span>Choose an image.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">26    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"showPic.js"</span> &gt;</span><span class="undefined"></span></div><div class="line">27    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">28  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">29  <span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><strong>2.CSS</strong></p>
-<p>2.1整篇图片库css代码，这里不对css学习做过多总结，css需要另行总结，只是放出代码。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">1 body&#123;</div><div class="line">2   font-family:"Helvetica","Arial",serif;</div><div class="line">3   color:#333;</div><div class="line">4   background-color:#ccc;</div><div class="line">5   margin: 1em 10%;</div><div class="line">6 &#125;</div><div class="line"></div><div class="line">7 h1&#123;</div><div class="line">8   color:#333;</div><div class="line">9   background-color:transparent;</div><div class="line">10 &#125;</div><div class="line"> </div><div class="line">11 a:link&#123;color:blue&#125;</div><div class="line">12 a:visited&#123;color:black&#125;</div><div class="line">13 a:hover&#123;color:red&#125;</div><div class="line">14 a:active&#123;color:green&#125;</div><div class="line">15 /*css伪类的运用*/</div><div class="line">16 /*link表示默认，visited表示访问过后，hover表示经过时，active表示点击时*/</div><div class="line">17 a&#123;</div><div class="line">18   background-color:transparent;</div><div class="line">19   font-weight:bold;</div><div class="line">20   text-decoration:none;</div><div class="line">21 &#125;</div><div class="line"></div><div class="line">22 ul&#123;</div><div class="line">23   padding:0;</div><div class="line">24 &#125;</div><div class="line"></div><div class="line">25 li&#123;</div><div class="line">26   float:left;</div><div class="line">27   padding:1em;</div><div class="line">28   list-style:none;</div><div class="line">29 &#125;</div><div class="line"></div><div class="line">30 img&#123;</div><div class="line">31 display:block;</div><div class="line">32 clear:both</div><div class="line">33 &#125;</div></pre></td></tr></table></figure>
-<p><strong>3.JS</strong></p>
-<p>3.1showPic函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="function"><span class="keyword">function</span> <span class="title">showPic</span>(<span class="params">whichpic</span>) </span>&#123;               <span class="comment">//whichpic代表一个元素点，指向某个图片的&lt;a&gt;元素</span></div><div class="line"><span class="number">2</span>     <span class="keyword">var</span> source = whichpic.getAttribute(<span class="string">"href"</span>); <span class="comment">//获取图片文径地址</span></div><div class="line"><span class="number">3</span>     <span class="keyword">var</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>); <span class="comment">//获取占位符图片</span></div><div class="line"><span class="number">4</span>     placeholder.setAttribute(<span class="string">"src"</span>,source); <span class="comment">//第一对src属性进行设置，src的值已经保存在source</span></div><div class="line"><span class="number">5</span>     <span class="keyword">var</span> text = whichpic.getAttribute(<span class="string">"title"</span>); <span class="comment">//修改图片下方描述性文字</span></div><div class="line"><span class="number">6</span>     <span class="keyword">var</span> description = <span class="built_in">document</span>.getElementById(<span class="string">"description"</span>);</div><div class="line"><span class="number">7</span>     description.firstChild.nodeValue = text; <span class="comment">//把description对象第一个节点的nodeValue属性值设置为变       量text的值</span></div><div class="line"><span class="number">8</span> &#125;</div></pre></td></tr></table></figure>
-<p>a.这里接触到了<strong>getAttribute()</strong>和<strong>setAttribute()</strong>；前者获取元素属性，后者可以获取并修改元素属性值</p>
-<p>b.<strong>childNodes</strong> <strong>nodeType</strong>和<strong>nodeValue</strong>三个属性</p>
-<p>　　<strong>childNodes</strong>属性可以获取任何有一个元素的所有子元素，它是一个包含这个元素所有子元素的数组；如我想获取body元素的所有子元素</p>
-<p> 1 var body_element = document.getElementsByTagName(“body”)[0];//这里[0]是body的第一个元素整篇html也且只有一个用[0]是获取body元素，不用的话只是获取一个空的数组</p>
-<p>2 body_element.childNodes  </p>
-<p>​        <strong>nodeType </strong>获取元素节点语法结构：node.nodeTye如alert(body_element.nodeType )会显示1；</p>
-<p> 　　一般js中只有3种具有实用价值的nodeType属性：元素节点的属性值是1；属性节点的属性值是2；文本节点的属性值是3。</p>
-<p>　　<strong>nodeValue </strong>用来改变文本节点的值，它用来得到（或设置）一个节点的值，语法结构：node.nodeValue如p[0].nodeValue这里p是元素但是想要获取文本，那么包含在p元素里面的文本节点是另一种节点，如果想要得到内容那么肯定要求p的第一个子节点的nodeValue，★当然第一个也可以用<strong>firstChild</strong>也表示 p[0]和p.firstChild是等价的</p>
-<p>那么以上这些可以实现一个简单的图片库效果，但是还是存在很多不规范的地方，比如是否支持平稳退化、结构和样式是否分离、是否向后兼容？性能考虑，压缩脚本等都可以考虑进来更好的完善图片库。</p>
-<hr>
-<p>==========================我是分割线=================================================================</p>
-<p>学习第五章之后，有了图片库改进版。第五章主要强调平稳退化，结构样式分离，向后兼容，性能考虑等最佳实践</p>
-<p>1.改进版HTML代码</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--第一版本代码；1、支持平稳退化，即如果浏览器禁用了js，那么用户依然能够访问这些图片而不是404只是体验有所下降--&gt;</span></div><div class="line"> <span class="comment">&lt;!--第一版本代码；2、js代码和html标记未分离，js onclick还在行间，那么使得js和a标签分离需要一个“挂钩”，此时我们给整个ul清单设置一个专有id如 id="gallerypic"--&gt;</span></div><div class="line">1 <span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line">2 <span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">3   <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">4     <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">5      <span class="tag">&lt;<span class="name">title</span>&gt;</span>Image Gallery<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">6      <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"layout.css"</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span></div><div class="line">7      <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">8   <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">9     <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Snapshots<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">10      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"gallerypic"</span>&gt;</span><span class="comment">&lt;!--挂钩，方便统一操作图片清单--&gt;</span></div><div class="line">11       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">12        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"fireworks.png"</span> <span class="attr">title</span>=<span class="string">"A fireworks display"</span>&gt;</span>Fireworks<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">13       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">14       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">15        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"coffee.png"</span> <span class="attr">title</span>=<span class="string">"A cup of black coffee"</span>&gt;</span>Coffee<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">16       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">17       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">18        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"rose.png"</span> <span class="attr">title</span>=<span class="string">"A red,red rose"</span>&gt;</span>Rose<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">19       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">20       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">21        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"bigben.png"</span> <span class="attr">title</span>=<span class="string">"The famous clock"</span>&gt;</span>Big ben<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">22       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">23      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">24    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"placeholder"</span> <span class="attr">src</span>=<span class="string">"avatar.png"</span> <span class="attr">alt</span>=<span class="string">"my image gallery"</span>&gt;</span></div><div class="line">25    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"description"</span>&gt;</span>Choose an image.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">26    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"showPic.js"</span> &gt;</span><span class="undefined"></span></div><div class="line">27    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">28  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">29  <span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>取消了行内onclick事件并赋予ul一个id以便统一操作ul下的链接，那么我们需要添加事件处理函数</p>
-<p>新建函数prepareGallery将有关操作关联到onclick上</p>
-<ul>
-<li>函数需要检查浏览器是否理解getElementsByTagName。</li>
-<li>函数需要检查浏览器是否理解getElementByID。</li>
-<li>函数需要检查当前网页是否存在id为imagegallery的元素</li>
-<li>遍历imagegallery元素中的所有链接</li>
-<li>设置onclick事件，让他在有关链接被点击时完成一下操作：1，将链接作为参数传给showPic函数；2，取消链接的默认行为不让浏览器打开链接</li>
-</ul>
-<p>改版后的js代码新增了prepareGallery函数如下所示：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="function"><span class="keyword">function</span> <span class="title">showPic</span>(<span class="params">whichpic</span>) </span>&#123;               <span class="comment">//whichpic代表一个元素点，指向某个图片的&lt;a&gt;元素</span></div><div class="line"><span class="number">2</span>     <span class="keyword">var</span> source = whichpic.getAttribute(<span class="string">"href"</span>); <span class="comment">//获取图片文径地址</span></div><div class="line"><span class="number">3</span>     <span class="keyword">var</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>); <span class="comment">//获取占位符图片</span></div><div class="line"><span class="number">4</span>     placeholder.setAttribute(<span class="string">"src"</span>,source); <span class="comment">//第一对src属性进行设置，src的值已经保存在source</span></div><div class="line"><span class="number">5</span>     <span class="keyword">var</span> text = whichpic.getAttribute(<span class="string">"title"</span>); <span class="comment">//修改图片下方描述性文字</span></div><div class="line"><span class="number">6</span>     <span class="keyword">var</span> description = <span class="built_in">document</span>.getElementById(<span class="string">"description"</span>);</div><div class="line"><span class="number">7</span>     description.firstChild.nodeValue = text; <span class="comment">/*把description对象第一个节点的nodeValue属性值设置为*/</span> <span class="number">9</span>   <span class="comment">//变量text的值</span></div><div class="line"><span class="number">10</span>   &#125;</div><div class="line"><span class="number">11</span> </div><div class="line"><span class="number">12</span></div><div class="line"><span class="number">13</span></div><div class="line"><span class="number">14</span> <span class="comment">//第二版V2.0 分析：如果使得html和js分离 那么我需要把onclick事件与id进行一个绑定需要进行如下代码编写:</span></div><div class="line"><span class="number">15</span> <span class="comment">//1.检查浏览器是否支持getElementsByTagname、getElementByID;</span></div><div class="line"><span class="number">16</span> <span class="comment">//2.判断网页是否存在id="gallerpic"的这样一个元素；</span></div><div class="line"><span class="number">17</span> <span class="comment">//3.遍历gallery元素中的所有链接;</span></div><div class="line"><span class="number">18</span> <span class="comment">//4.设置onclick事件让他在相关链接被点击时，将此链接作为参数传递给showPic并且取消链接被点击时的默认行为不打开新的窗口.</span></div><div class="line"><span class="number">19</span> <span class="function"><span class="keyword">function</span> <span class="title">prepareGallery</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="number">20</span>     <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementsByTagName)&#123;<span class="keyword">return</span> <span class="literal">false</span>;&#125;</div><div class="line"><span class="number">21</span>     <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById)&#123;<span class="keyword">return</span> <span class="literal">false</span>;&#125;</div><div class="line"><span class="number">22</span>     <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById(<span class="string">"gallerypic"</span>))&#123;<span class="keyword">return</span> <span class="literal">false</span>;&#125;</div><div class="line"><span class="number">23</span>     <span class="keyword">var</span> gallery=<span class="built_in">document</span>.getElementById(<span class="string">"gallerypic"</span>);</div><div class="line"><span class="number">24</span>     <span class="keyword">var</span> links = gallery.getElementsByTagName(<span class="string">"a"</span>);</div><div class="line"><span class="number">25</span>     <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;links.length;i++)&#123;          <span class="comment">//for语句条件之间是分号不是逗号  要注意 </span></div><div class="line"><span class="number">26</span>         links[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="number">27</span>             showPic(<span class="keyword">this</span>);<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"><span class="number">28</span>         &#125;</div><div class="line"><span class="number">29</span>     &#125;</div><div class="line"><span class="number">30</span> &#125;</div><div class="line"><span class="number">31</span> <span class="comment">//下面是执行这个prepareGallery函数，需要等到页面加载完onload之后，最简单的办法是定义一个匿名函数诸如</span></div><div class="line"><span class="number">32</span> <span class="comment">//window.onload = function()&#123;</span></div><div class="line"><span class="number">33</span> <span class="comment">//    firstFunction();</span></div><div class="line"><span class="number">34</span> <span class="comment">//    secondFunction();</span></div><div class="line"><span class="number">35</span> <span class="comment">//&#125;</span></div><div class="line"><span class="number">36</span> <span class="comment">//最佳的办法是调用addLoadEvent函数</span></div><div class="line"><span class="number">37</span> <span class="function"><span class="keyword">function</span> <span class="title">addLoadEvent</span>(<span class="params">func</span>) </span>&#123;</div><div class="line"><span class="number">38</span>     <span class="keyword">var</span> oldonload = <span class="built_in">window</span>.onload;</div><div class="line"><span class="number">39</span>     <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.onload !=<span class="string">'function'</span>) &#123;</div><div class="line"><span class="number">40</span>    <span class="built_in">window</span>.onload = func;</div><div class="line"><span class="number">41</span>    &#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="number">42</span>    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"><span class="number">43</span>      oldonload();</div><div class="line"><span class="number">44</span>      func();</div><div class="line"><span class="number">45</span>    &#125;</div><div class="line"><span class="number">46</span>  &#125;</div><div class="line"><span class="number">47</span> &#125;</div><div class="line"><span class="number">48</span> addLoadEvent(prepareGallery)</div></pre></td></tr></table></figure>
-<p>最后的实际效果如下，点击不同的菜单会有相应的变化：</p>
-<p><img src="new-article-1/Image Gallery.png" alt="Image Gallery"></p>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DOM编程艺术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/14/new-article-1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/01/25/我的第二篇文章/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          我的第二篇文章
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/05/28/吕彬的测试文章/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">吕彬的测试文章</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <!--PC版-->
-<div id="SOHUCS" sid="《JavaScript DOM编程艺术》整理笔记!" style="padding: 0px 30px 0px 46px;"></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = "cyt2iWicw"; 
-var conf = "prod_30a10978ab519b2dbe5ecf0af6e85732"; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); 
-</script>
+    
 
-  
-
-  
 
           </div>
         </div>
@@ -385,8 +218,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
