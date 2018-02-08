@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/08/第6章-面向对象的程序设计/index.html">
 <meta property="og:site_name" content="skyuyuni">
 <meta property="og:description" content="面向对象（Object-Oriented，OO）的语言有一个标志，那就是它们都有类的概念，而通过类可以创建任意多个具有相同属性和方法的对象。ECMAScript中没有类的概念，因此这就相当于对象也与基于类的语言中的对象有所不同。">
-<meta property="og:updated_time" content="2018-02-08T15:47:59.134Z">
+<meta property="og:updated_time" content="2018-02-08T15:59:37.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第6章 面向对象的程序设计">
 <meta name="twitter:description" content="面向对象（Object-Oriented，OO）的语言有一个标志，那就是它们都有类的概念，而通过类可以创建任意多个具有相同属性和方法的对象。ECMAScript中没有类的概念，因此这就相当于对象也与基于类的语言中的对象有所不同。">
@@ -178,7 +178,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>面向对象（Object-Oriented，OO）的语言有一个标志，那就是它们都有类的概念，而通过类可以创建任意多个具有相同属性和方法的对象。ECMAScript中没有类的概念，因此这就相当于对象也与基于类的语言中的对象有所不同。<a id="more"></a></p>
+        <p>面向对象（Object-Oriented，OO）的语言有一个标志，那就是它们都有类的概念，而通过类可以创建任意多个具有相同属性和方法的对象。ECMAScript中没有类的概念，因此这就相当于对象也与基于类的语言中的对象有所不同。</p>
+<a id="more"></a>
 <p>ECMAScript-262把对象定义为：“无序属性的集合，其属性可以包含基本值、对象或者函数。”严格来讲，这就相当于说对象是一组没有特定顺序的值。对象的每个属性或方法都要一个名字，而每个名字都映射到一个值。正因为这样（以及其他将要讨论的原因），我们可以把ECMAScript的对象想象成散列表：无非就是一组名值对，其中值可以是数据或函数。</p>
 <p>每个对象都是基于一个引用类型创建的，这个引用类型可以是原生类型，也可以是开发人员定义的类型。</p>
 <h4 id="6-1-理解对象"><a href="#6-1-理解对象" class="headerlink" title="6.1 理解对象"></a>6.1 理解对象</h4><p>创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法，如下所示。</p>
@@ -189,8 +190,7 @@
 <p>这个例子中的person对象和前面例子中的person对象是一样的，都有相同属性和方法。这些属性在创建时都带有一些特征值，JavaScript通过这些特征值来定义它们的行为。</p>
 <h4 id="6-1-1-属性类型"><a href="#6-1-1-属性类型" class="headerlink" title="6.1.1 属性类型"></a>6.1.1 属性类型</h4><p>ECMAScript中有两种属性：数据属性和访问器属性。</p>
 <ol>
-<li><p>######数据属性</p>
-<p>数据属性包含一个数据值的位置。在这个位置可以读取和写入值。数据属性有4个描述其行为的特性。</p>
+<li><h6 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h6><p>数据属性包含一个数据值的位置。在这个位置可以读取和写入值。数据属性有4个描述其行为的特性。</p>
 <ul>
 <li><strong>[[Configurable]]</strong>：表示能否通过delete删除属性后重新定义属性，能否修改属性的特性，或者能否把属性修改为访问其属性。像前面的例子中那样直接在对象上定义的属性，它们的这个特性默认值为true。</li>
 <li><strong>[[Enumerable]]</strong>：表示能否通过for-in循环返回属性。像前面的例子中那样直接在对象上定义的属性，它们的这个特性默认值为true。</li>
@@ -442,11 +442,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对象属性</a>
+                <a href="javascript:void(0)" class="js-tag color5">函数编写</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">函数编写</a>
+                <a href="javascript:void(0)" class="js-tag color5">对象属性</a>
               </li>
             
             <div class="clearfix"></div>
