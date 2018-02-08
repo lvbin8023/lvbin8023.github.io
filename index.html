@@ -175,38 +175,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>面向对象（Object-Oriented，OO）的语言有一个标志，那就是它们都有类的概念，而通过类可以创建任意多个具有相同属性和方法的对象。ECMAScript中没有类的概念，因此这就相当于对象也与基于类的语言中的对象有所不同。</p>
-<p>ECMAScript-262把对象定义为：“无序属性的集合，其属性可以包含基本值、对象或者函数。”严格来讲，这就相当于说对象是一组没有特定顺序的值。对象的每个属性或方法都要一个名字，而每个名字都映射到一个值。正因为这样（以及其他将要讨论的原因），我们可以把ECMAScript的对象想象成散列表：无非就是一组名值对，其中值可以是数据或函数。</p>
-<p>每个对象都是基于一个引用类型创建的，这个引用类型可以是原生类型，也可以是开发人员定义的类型。</p>
-<h4 id="6-1-理解对象"><a href="#6-1-理解对象" class="headerlink" title="6.1 理解对象"></a>6.1 理解对象</h4><p>创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法，如下所示。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>(); <span class="comment">//新建对象，命名为person。</span></div><div class="line">person.name = <span class="string">"Nicholas"</span>; <span class="comment">//属性name，值为Nicholas。</span></div><div class="line">person.age = <span class="number">29</span>; <span class="comment">//属性为age，值为29。</span></div><div class="line">person.job = <span class="string">"Sofaware Engineer"</span>; <span class="comment">//属性为job，值为Sofaware Engineer。</span></div><div class="line"></div><div class="line">person.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;; <span class="comment">//方法sayName()，显示this.name（解析为person.name）的值。</span></div></pre></td></tr></table></figure>
-<p>可以看到，这里创建了一个名为person的对象，并为其添加了三个属性（name，age和job）和一个方法（sayName()）</p>
-<p>方法sayName()用于显示this.name（解析为person.name）的值。当然上面的例子还有另一种模式创建新对象，对象字面量模式。如下所示：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"Nicholas"</span>,</div><div class="line">    <span class="attr">age</span>:<span class="number">29</span>,</div><div class="line">    <span class="attr">job</span>:<span class="string">"Sofaware Engineer"</span>,</div><div class="line">    </div><div class="line">    <span class="attr">sayName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个例子中的person对象和前面例子中的person对象是一样的，都有相同属性和方法。这些属性在创建时都带有一些特征值，JavaScript通过这些特征值来定义它们的行为。</p>
-<h4 id="6-1-1-属性类型"><a href="#6-1-1-属性类型" class="headerlink" title="6.1.1 属性类型"></a>6.1.1 属性类型</h4><p>ECMAScript中有两种属性：数据属性和访问器属性。</p>
-<ol>
-<li><p>######数据属性</p>
-<p>数据属性包含一个数据值的位置。在这个位置可以读取和写入值。数据属性有4个描述其行为的特性。</p>
-<ul>
-<li><strong>[[Configurable]]</strong>：表示能否通过delete删除属性后重新定义属性，能否修改属性的特性，或者能否把属性修改为访问其属性。像前面的例子中那样直接在对象上定义的属性，它们的这个特性默认值为true。</li>
-<li><strong>[[Enumerable]]</strong>：表示能否通过for-in循环返回属性。像前面的例子中那样直接在对象上定义的属性，它们的这个特性默认值为true。</li>
-<li><strong>[[Writable]]</strong>：表示能否修改属性的值。像前面的例子中那样直接在对象上定义的属性，它们的这个特性默认值为true。</li>
-<li><strong>[[Value]]</strong>：包含这个属性的特殊值。读取属性值的时候，从这个位置读：写入属性值的时候，把新值保存到这个位置。这个特性的默认值为undefined。</li>
-</ul>
-<p>对于像前面例子中那样直接在对象上定义的属性，它们的<strong>[[Configurable]]</strong>、<strong>[[Enumerable]]</strong>和<strong>[[Writable]]</strong>特性都被设置为true，而<strong>[[Value]]</strong>特性被设置为指定的值。例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"Nicholas"</span></div><div class="line">&#125;；</div></pre></td></tr></table></figure>
-<p>这里创建了一个名为name的属性，为它指定的值是”Nicholas”。也就是说，<strong>[[Value]]</strong>特性将被设置为”Nicholas”，而对这个值的任何修改都将反应在这个位置。</p>
-<p>要修改属性默认的特性，必须使用ECMAScript5中的<strong>Object.defineProperty()</strong>方法。这个方法接收三个参数：属性所在的对象、属性的名字和一个描述对象。其中，描述符（descriptor）对象的属性必须是：<strong>Configurable</strong>、<strong>Enumerable</strong>、<strong>Writable</strong>和<strong>Value</strong>。设置其中的一或多个值，可以修改对应的特性值。例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;&#125;;</div><div class="line"><span class="built_in">Object</span>.defineProperty(person,<span class="string">"name"</span>,&#123;</div><div class="line">    <span class="attr">writable</span>:<span class="literal">false</span>,</div><div class="line">    <span class="attr">value</span>:<span class="string">"Nicholas"</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">alert(person.name); <span class="comment">//"Nicholas"</span></div><div class="line">person.name = <span class="string">"Greg"</span>;</div><div class="line">alert(person.name); <span class="comment">//"Nicholas"</span></div></pre></td></tr></table></figure>
-<p>这个例子创建了一个名为name的属性，它的值”Nicholas”是只读的。这属性的值是不可修改的，如果尝试为它指定新值。在非严格模式下，赋值操作将被忽略；在严格模式下，赋值操作将会导致错误。类似的规则也适用不可配置的属性。例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;&#125;;</div><div class="line"><span class="built_in">Object</span>.defineProperty(person,<span class="string">"name"</span>,&#123;</div><div class="line">    <span class="attr">configurable</span>:<span class="literal">false</span>,</div><div class="line">    <span class="attr">value</span>:<span class="string">"Nicholas"</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">alert(person.name); <span class="comment">//"Nicholas"</span></div><div class="line">person.name = <span class="string">"Greg"</span>;</div><div class="line">alert(person.name); <span class="comment">//"Nicholas"</span></div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>​</p>
-</li>
-</ol>
-
+        <p>面向对象（Object-Oriented，OO）的语言有一个标志，那就是它们都有类的概念，而通过类可以创建任意多个具有相同属性和方法的对象。ECMAScript中没有类的概念，因此这就相当于对象也与基于类的语言中的对象有所不同。
+        
+          <a class="article-more-a" href="/2018/02/08/第6章-面向对象的程序设计/#more">more >></a>
+        
       
 
       
@@ -656,11 +628,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JavaScript简史</a>
+                <a href="javascript:void(0)" class="js-tag color3">DOM编程艺术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">函数编写</a>
+                <a href="javascript:void(0)" class="js-tag color3">JavaScript简史</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,7 +640,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DOM编程艺术</a>
+                <a href="javascript:void(0)" class="js-tag color5">函数编写</a>
               </li>
             
             <div class="clearfix"></div>
