@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 对象属性 | skyuyuni</title>
+  <title>JS异步之promise、async+await基本使用 | skyuyuni</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="skyuyuni">
-<meta property="og:url" content="http://yoursite.com/tags/对象属性/index.html">
+  <meta name="description" content="所谓同步执行，就是从前往后执行，一句执行完了执行下一句。 而异步执行，则不会等待异步代码执行完，直接执行后面的代码；等异步代码执行完返回结果之后再进行处理。 比如一些耗时操作会使用异步执行的方式，以提高执行效率，最常见的莫过于Ajax网络请求。">
+<meta name="keywords" content="Ajax,Promise,Sync,Await">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS异步之promise、async+await基本使用">
+<meta property="og:url" content="http://yoursite.com/2019/10/16/JS异步之promise、async+await基本使用/index.html">
 <meta property="og:site_name" content="skyuyuni">
+<meta property="og:description" content="所谓同步执行，就是从前往后执行，一句执行完了执行下一句。 而异步执行，则不会等待异步代码执行完，直接执行后面的代码；等异步代码执行完返回结果之后再进行处理。 比如一些耗时操作会使用异步执行的方式，以提高执行效率，最常见的莫过于Ajax网络请求。">
+<meta property="og:updated_time" content="2019-10-16T06:22:56.689Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="skyuyuni">
+<meta name="twitter:title" content="JS异步之promise、async+await基本使用">
+<meta name="twitter:description" content="所谓同步执行，就是从前往后执行，一句执行完了执行下一句。 而异步执行，则不会等待异步代码执行完，直接执行后面的代码；等异步代码执行完返回结果之后再进行处理。 比如一些耗时操作会使用异步执行的方式，以提高执行效率，最常见的莫过于Ajax网络请求。">
   
     <link rel="alternative" href="/atom.xml" title="skyuyuni" type="application/atom+xml">
   
@@ -153,61 +158,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JS异步之promise、async+await基本使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/08/第6章-面向对象的程序设计/" class="archive-article-date">
-  	<time datetime="2018-02-08T14:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/08/第6章-面向对象的程序设计/">第6章 面向对象的程序设计</a>
+    <h1 class="article-title" itemprop="name">
+      JS异步之promise、async+await基本使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/16/JS异步之promise、async+await基本使用/" class="archive-article-date">
+  	<time datetime="2019-10-16T06:01:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>所谓同步执行，就是从前往后执行，一句执行完了执行下一句。</p>
+<p>而异步执行，则不会等待异步代码执行完，直接执行后面的代码；等异步代码执行完返回结果之后再进行处理。</p>
+<p>比如一些耗时操作会使用异步执行的方式，以提高执行效率，最常见的莫过于<code>Ajax</code>网络请求。<a id="more"></a></p>
+<p>以jQuery Ajax为例，假设有这样的需求：</p>
+<blockquote>
+<p>从地址A获取数据a，从地址B获取数据b，然后把数据a和b提交到接口C</p>
+</blockquote>
+<h2 id="ES6：Promise"><a href="#ES6：Promise" class="headerlink" title="ES6：Promise"></a>ES6：Promise</h2><p> 如何用<code>Promise</code>执行jQuery Ajax请求： </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 用于返回jQuery Ajax的Promise方法，从而简化代码</span></div><div class="line"><span class="keyword">let</span> promisifyAjaxRequest = <span class="function"><span class="keyword">function</span>(<span class="params">url, data</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> method = data ? <span class="string">'post'</span> : <span class="string">'get'</span>;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</div><div class="line">        $.ajax(&#123;</div><div class="line">            <span class="attr">url</span>: url,</div><div class="line">            <span class="attr">type</span>: method,</div><div class="line">            <span class="attr">data</span>: data,</div><div class="line">            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">                resolve(res);</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">error</span>: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">                reject(res);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 显示加载提示</span></div><div class="line">$.showLoading();</div><div class="line"><span class="comment">// 用于保存请求数据结果</span></div><div class="line"><span class="keyword">let</span> result = [];</div><div class="line">promisifyAjaxRequest(<span class="string">'https://example.com/api/a'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    result.push(data);</div><div class="line">    <span class="keyword">return</span> promisifyAjaxRequest(<span class="string">'https://example.com/api/b'</span>);</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    result.push(data);</div><div class="line">    <span class="keyword">return</span> promisifyAjaxRequest(<span class="string">'https://example.com/api/c'</span>, &#123;</div><div class="line">        <span class="attr">a</span>: result[<span class="number">0</span>],</div><div class="line">        <span class="attr">b</span>: result[<span class="number">1</span>]</div><div class="line">    &#125;);</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    $.hideLoading();</div><div class="line">    $.toast(<span class="string">'请求成功'</span>);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    $.alert(<span class="string">'请求失败: '</span> + err);</div><div class="line">    $.hideLoading();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>可以看到使用<code>Promise</code>之后的代码变得更加简洁和统一。</p>
+<p>但是<code>Promise</code>也有不足之处，就是使用起来不是特别直观。</p>
+<h2 id="ES7：async-await"><a href="#ES7：async-await" class="headerlink" title="ES7：async+await"></a>ES7：async+await</h2><p>在ES7中，提供了<code>async</code>和<code>await</code>关键字，被称为异步的终极解决方案。</p>
+<p>这个方案其实也是基于<code>Promise</code>实现的，具体细节就先不展开，还是重点来看使用方式。</p>
+<p>使用<code>async</code>+<code>await</code>来实现前面需求：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 因为基于Promise实现，所以同样需要返回Promise</span></div><div class="line"><span class="keyword">let</span> promisifyAjaxRequest = <span class="function"><span class="keyword">function</span>(<span class="params">url, data</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> method = data ? <span class="string">'post'</span> : <span class="string">'get'</span>;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</div><div class="line">        $.ajax(&#123;</div><div class="line">            <span class="attr">url</span>: url,</div><div class="line">            <span class="attr">type</span>: method,</div><div class="line">            <span class="attr">data</span>: data,</div><div class="line">            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">                resolve(res);</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">error</span>: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">                reject(res);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 函数定义前面加上async关键字</span></div><div class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">ajaxRequests</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// promise方法前面加上await关键字，可以接收返回结果</span></div><div class="line">    <span class="keyword">let</span> a = <span class="keyword">await</span> promisifyAjaxRequest(<span class="string">'https://example.com/api/a'</span>);</div><div class="line">    <span class="keyword">let</span> b = <span class="keyword">await</span> promisifyAjaxRequest(<span class="string">'https://example.com/api/b'</span>);</div><div class="line">    <span class="keyword">let</span> data = <span class="keyword">await</span> promisifyAjaxRequest(<span class="string">'https://example.com/api/c'</span>, &#123;</div><div class="line">        <span class="attr">a</span>: a,</div><div class="line">        <span class="attr">b</span>: b</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> data;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 显示加载提示</span></div><div class="line">$.showLoading();</div><div class="line"><span class="comment">// 执行请求</span></div><div class="line"><span class="comment">// 用法同Promsie</span></div><div class="line">ajaxRequets().then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    $.hideLoading();</div><div class="line">    $.toast(<span class="string">'请求成功'</span>);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    $.alert(<span class="string">'请求失败: '</span> + err);</div><div class="line">    $.hideLoading();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>可以看到，<code>async</code>+<code>await</code>的写法更加直观，也更像同步的写法。</p>
+<p>作者：黑客与码农链接：<a href="https://juejin.im/post/5b699cb36fb9a04f8e145343来源：掘金著作权归作者所有。" target="_blank" rel="external">https://juejin.im/post/5b699cb36fb9a04f8e145343来源：掘金著作权归作者所有。</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对象属性</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Ajax</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Promise</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sync</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Await</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/10/16/JS异步之promise、async+await基本使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/09/20/vue-cli 3.x 项目部署到 github pages/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue-cli 3.x 项目部署到 github pages</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+  <!--PC版-->
+<div id="SOHUCS" sid="JS异步之promise、async+await基本使用" style="padding: 0 30px 0 46px!important;"></div> 
+<script type="text/javascript">
+(function(){ 
+var appid = 'cyt2iWicw'; 
+var conf = 'prod_30a10978ab519b2dbe5ecf0af6e85732'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
 
+  
+
+  
 
           </div>
         </div>
@@ -229,9 +362,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
