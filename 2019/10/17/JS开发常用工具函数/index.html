@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/10 | skyuyuni</title>
+  <title>JS开发常用工具函数 | skyuyuni</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="skyuyuni">
-<meta property="og:url" content="http://yoursite.com/archives/2018/10/index.html">
+  <meta name="description" content="JS开发常用工具函数收集，方便后续项目的开发">
+<meta name="keywords" content="Javascript,工具函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS开发常用工具函数">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/JS开发常用工具函数/index.html">
 <meta property="og:site_name" content="skyuyuni">
+<meta property="og:description" content="JS开发常用工具函数收集，方便后续项目的开发">
+<meta property="og:updated_time" content="2019-10-17T02:02:04.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="skyuyuni">
+<meta name="twitter:title" content="JS开发常用工具函数">
+<meta name="twitter:description" content="JS开发常用工具函数收集，方便后续项目的开发">
   
     <link rel="alternative" href="/atom.xml" title="skyuyuni" type="application/atom+xml">
   
@@ -153,61 +158,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JS开发常用工具函数" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/05/HTML常用的标签/" class="archive-article-date">
-  	<time datetime="2018-10-05T11:11:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/05/HTML常用的标签/">HTML常用的标签</a>
+    <h1 class="article-title" itemprop="name">
+      JS开发常用工具函数
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/17/JS开发常用工具函数/" class="archive-article-date">
+  	<time datetime="2019-10-17T01:56:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JS开发常用工具函数收集，方便后续项目的开发<a id="more"></a></p>
+<h4 id="1、dateFormater：格式化时间"><a href="#1、dateFormater：格式化时间" class="headerlink" title="1、dateFormater：格式化时间"></a>1、<code>dateFormater</code>：格式化时间</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dateFormater</span>(<span class="params">formater, t</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> date = t ? <span class="keyword">new</span> <span class="built_in">Date</span>(t) : <span class="keyword">new</span> <span class="built_in">Date</span>(),</div><div class="line">        Y = date.getFullYear() + <span class="string">''</span>,</div><div class="line">        M = date.getMonth() + <span class="number">1</span>,</div><div class="line">        D = date.getDate(),</div><div class="line">        H = date.getHours(),</div><div class="line">        m = date.getMinutes(),</div><div class="line">        s = date.getSeconds();</div><div class="line">    <span class="keyword">return</span> formater.replace(<span class="regexp">/YYYY|yyyy/g</span>,Y)</div><div class="line">        .replace(<span class="regexp">/YY|yy/g</span>,Y.substr(<span class="number">2</span>,<span class="number">2</span>))</div><div class="line">        .replace(<span class="regexp">/MM/g</span>,(M&lt;<span class="number">10</span>?<span class="string">'0'</span>:<span class="string">''</span>) + M)</div><div class="line">        .replace(<span class="regexp">/DD/g</span>,(D&lt;<span class="number">10</span>?<span class="string">'0'</span>:<span class="string">''</span>) + D)</div><div class="line">        .replace(<span class="regexp">/HH|hh/g</span>,(H&lt;<span class="number">10</span>?<span class="string">'0'</span>:<span class="string">''</span>) + H)</div><div class="line">        .replace(<span class="regexp">/mm/g</span>,(m&lt;<span class="number">10</span>?<span class="string">'0'</span>:<span class="string">''</span>) + m)</div><div class="line">        .replace(<span class="regexp">/ss/g</span>,(s&lt;<span class="number">10</span>?<span class="string">'0'</span>:<span class="string">''</span>) + s)</div><div class="line">&#125;</div><div class="line"><span class="comment">// dateFormater('YYYY-MM-DD HH:mm', t) ==&gt; 2019-06-26 18:30</span></div><div class="line"><span class="comment">// dateFormater('YYYYMMDDHHmm', t) ==&gt; 201906261830</span></div></pre></td></tr></table></figure>
+<h4 id="2、dateStrForma：将指定字符串由一种时间格式转化为另一种（-from的格式应对应str的位置-）"><a href="#2、dateStrForma：将指定字符串由一种时间格式转化为另一种（-from的格式应对应str的位置-）" class="headerlink" title="2、dateStrForma：将指定字符串由一种时间格式转化为另一种（ from的格式应对应str的位置 ）"></a>2、<code>dateStrForma</code>：将指定字符串由一种时间格式转化为另一种（ from的格式应对应str的位置 ）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dateStrForma</span>(<span class="params">str, from, to</span>)</span>&#123;</div><div class="line">    <span class="comment">//'20190626' 'YYYYMMDD' 'YYYY年MM月DD日'</span></div><div class="line">    str += <span class="string">''</span></div><div class="line">    <span class="keyword">let</span> Y = <span class="string">''</span></div><div class="line">    <span class="keyword">if</span>(~(Y = <span class="keyword">from</span>.indexOf(<span class="string">'YYYY'</span>)))&#123;</div><div class="line">        Y = str.substr(Y, <span class="number">4</span>)</div><div class="line">        to = to.replace(<span class="regexp">/YYYY|yyyy/g</span>,Y)</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(~(Y = <span class="keyword">from</span>.indexOf(<span class="string">'YY'</span>)))&#123;</div><div class="line">        Y = str.substr(Y, <span class="number">2</span>)</div><div class="line">        to = to.replace(<span class="regexp">/YY|yy/g</span>,Y)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> k,i</div><div class="line">    [<span class="string">'M'</span>,<span class="string">'D'</span>,<span class="string">'H'</span>,<span class="string">'h'</span>,<span class="string">'m'</span>,<span class="string">'s'</span>].forEach(<span class="function"><span class="params">s</span> =&gt;</span>&#123;</div><div class="line">        i = <span class="keyword">from</span>.indexOf(s+s)</div><div class="line">        k = ~i ? str.substr(i, <span class="number">2</span>) : <span class="string">''</span></div><div class="line">        to = to.replace(s+s, k)</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> to</div><div class="line">&#125;</div><div class="line"><span class="comment">// dateStrForma('20190626', 'YYYYMMDD', 'YYYY年MM月DD日') ==&gt; 2019年06月26日</span></div><div class="line"><span class="comment">// dateStrForma('121220190626', '----YYYYMMDD', 'YYYY年MM月DD日') ==&gt; 2019年06月26日</span></div><div class="line"><span class="comment">// dateStrForma('2019年06月26日', 'YYYY年MM月DD日', 'YYYYMMDD') ==&gt; 20190626</span></div><div class="line"></div><div class="line"><span class="comment">// 一般的也可以使用正则来实现</span></div><div class="line"><span class="comment">//'2019年06月26日'.replace(/(\d&#123;4&#125;)年(\d&#123;2&#125;)月(\d&#123;2&#125;)日/, '$1-$2-$3') ==&gt; 2019-06-26</span></div></pre></td></tr></table></figure>
+<h4 id="3、将时间戳转化为YYYY-MM-DD"><a href="#3、将时间戳转化为YYYY-MM-DD" class="headerlink" title="3、将时间戳转化为YYYY-MM-DD"></a>3、将时间戳转化为<code>YYYY-MM-DD</code></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLocalTime</span>(<span class="params">nS</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(nS);</div><div class="line">  <span class="keyword">let</span> year = date.getFullYear();</div><div class="line">  <span class="keyword">let</span> month = date.getMonth() + <span class="number">1</span>;</div><div class="line">  <span class="keyword">let</span> day = date.getDate();</div><div class="line">  month = month &lt; <span class="number">10</span> ? <span class="string">"0"</span> + month : month;</div><div class="line">  day = day &lt; <span class="number">10</span> ? <span class="string">"0"</span> + day : day;</div><div class="line">  date = year + <span class="string">'-'</span> + month + <span class="string">'-'</span> + day;</div><div class="line">  <span class="keyword">return</span> date;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4、getUrlParam：获取url参数，返回一个对象"><a href="#4、getUrlParam：获取url参数，返回一个对象" class="headerlink" title="4、getUrlParam：获取url参数，返回一个对象"></a>4、<code>getUrlParam</code>：获取url参数，返回一个对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUrlParam</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> url = <span class="built_in">document</span>.location.toString();</div><div class="line">    <span class="keyword">let</span> arrObj = url.split(<span class="string">"?"</span>);</div><div class="line">    <span class="keyword">let</span> params = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</div><div class="line">    <span class="keyword">if</span> (arrObj.length &gt; <span class="number">1</span>)&#123;</div><div class="line">        arrObj = arrObj[<span class="number">1</span>].split(<span class="string">"&amp;"</span>);</div><div class="line">        arrObj.forEach(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</div><div class="line">            item = item.split(<span class="string">"="</span>);</div><div class="line">            params[item[<span class="number">0</span>]] = item[<span class="number">1</span>]</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> params;</div><div class="line">&#125;</div><div class="line"><span class="comment">// ?a=1&amp;b=2&amp;c=3 ==&gt; &#123;a: "1", b: "2", c: "3"&#125;</span></div></pre></td></tr></table></figure>
+<h4 id="5、getQueryValue：获取url参数的值，返回参数的值"><a href="#5、getQueryValue：获取url参数的值，返回参数的值" class="headerlink" title="5、getQueryValue：获取url参数的值，返回参数的值"></a>5、<code>getQueryValue</code>：获取<code>url</code>参数的值，返回参数的值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryValue</span>(<span class="params">variable</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> query = <span class="built_in">window</span>.location.search.substring(<span class="number">1</span>);</div><div class="line">  <span class="keyword">let</span> vars = query.split(<span class="string">"&amp;"</span>);</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; vars.length; i++) &#123;</div><div class="line">    <span class="keyword">let</span> pair = vars[i].split(<span class="string">"="</span>);</div><div class="line">    <span class="keyword">if</span> (pair[<span class="number">0</span>] === variable) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(pair[<span class="number">1</span>]);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// ?a=1&amp;b=2&amp;c=3 ==&gt; getQueryValue('a') ==&gt; 1</span></div></pre></td></tr></table></figure>
+<h4 id="6、按钮倒计时，提高用户等待的体验"><a href="#6、按钮倒计时，提高用户等待的体验" class="headerlink" title="6、按钮倒计时，提高用户等待的体验"></a>6、按钮倒计时，提高用户等待的体验</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deadTime</span>(<span class="params">element,time</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> deadTime = time;</div><div class="line">  <span class="keyword">let</span> button = $(element);</div><div class="line">  <span class="keyword">let</span> timeStop = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    deadTime--;</div><div class="line">    <span class="keyword">if</span> (deadTime &gt; <span class="number">0</span>) &#123;</div><div class="line">      button.text(<span class="string">`稍等 <span class="subst">$&#123;deadTime&#125;</span> S`</span>);</div><div class="line">      button.attr(<span class="string">'disabled'</span>, <span class="string">'disabled'</span>);<span class="comment">//禁止点击</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      deadTime = time;<span class="comment">//当减到0时重新赋值</span></div><div class="line">      button.text(<span class="string">'导出全部'</span>);</div><div class="line">      clearInterval(timeStop);<span class="comment">//清除定时器</span></div><div class="line">      button.removeAttr(<span class="string">'disabled'</span>);<span class="comment">//移除属性，可点击</span></div><div class="line">    &#125;</div><div class="line">  &#125;, <span class="number">1000</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="7、downloadFile：base64数据导出文件，文件下载"><a href="#7、downloadFile：base64数据导出文件，文件下载" class="headerlink" title="7、downloadFile：base64数据导出文件，文件下载"></a>7、<code>downloadFile</code>：<code>base64</code>数据导出文件，文件下载</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadFile</span>(<span class="params">filename, data</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> DownloadLink = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ( DownloadLink )&#123;</div><div class="line">        <span class="built_in">document</span>.body.appendChild(DownloadLink);</div><div class="line">        DownloadLink.style = <span class="string">'display: none'</span>;</div><div class="line">        DownloadLink.download = filename;</div><div class="line">        DownloadLink.href = data;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> ( <span class="built_in">document</span>.createEvent )&#123;</div><div class="line">            <span class="keyword">let</span> DownloadEvt = <span class="built_in">document</span>.createEvent(<span class="string">'MouseEvents'</span>);</div><div class="line"></div><div class="line">            DownloadEvt.initEvent(<span class="string">'click'</span>, <span class="literal">true</span>, <span class="literal">false</span>);</div><div class="line">            DownloadLink.dispatchEvent(DownloadEvt);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="built_in">document</span>.createEventObject )</div><div class="line">            DownloadLink.fireEvent(<span class="string">'onclick'</span>);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> DownloadLink.onclick == <span class="string">'function'</span> )</div><div class="line">            DownloadLink.onclick();</div><div class="line"></div><div class="line">        <span class="built_in">document</span>.body.removeChild(DownloadLink);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="8、toFullScreen：全屏"><a href="#8、toFullScreen：全屏" class="headerlink" title="8、toFullScreen：全屏"></a>8、<code>toFullScreen</code>：全屏</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">toFullScreen</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> el = <span class="built_in">document</span>.documentElement;</div><div class="line">    <span class="keyword">let</span> rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;</div><div class="line"></div><div class="line">    <span class="comment">//typeof rfs != "undefined" &amp;&amp; rfs</span></div><div class="line">    <span class="keyword">if</span> (rfs) &#123;</div><div class="line">        rfs.call(el);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.ActiveXObject !== <span class="string">"undefined"</span>) &#123;</div><div class="line">        <span class="comment">//for IE，这里其实就是模拟了按下键盘的F11，使浏览器全屏</span></div><div class="line">        <span class="keyword">let</span> wscript = <span class="keyword">new</span> ActiveXObject(<span class="string">"WScript.Shell"</span>);</div><div class="line">        <span class="keyword">if</span> (wscript != <span class="literal">null</span>) &#123;</div><div class="line">            wscript.SendKeys(<span class="string">"&#123;F11&#125;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        alert(<span class="string">"浏览器不支持全屏"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="8、exitFullscreen：退出全屏"><a href="#8、exitFullscreen：退出全屏" class="headerlink" title="8、exitFullscreen：退出全屏"></a>8、<code>exitFullscreen</code>：退出全屏</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">exitFullscreen</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> el = parent.document;</div><div class="line">    <span class="keyword">let</span> cfs = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullScreen;</div><div class="line"></div><div class="line">    <span class="comment">//typeof cfs != "undefined" &amp;&amp; cfs</span></div><div class="line">    <span class="keyword">if</span> (cfs) &#123;</div><div class="line">        cfs.call(el);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.ActiveXObject !== <span class="string">"undefined"</span>) &#123;</div><div class="line">        <span class="comment">//for IE，这里和fullScreen相同，模拟按下F11键退出全屏</span></div><div class="line">        <span class="keyword">let</span> wscript = <span class="keyword">new</span> ActiveXObject(<span class="string">"WScript.Shell"</span>);</div><div class="line">        <span class="keyword">if</span> (wscript != <span class="literal">null</span>) &#123;</div><div class="line">            wscript.SendKeys(<span class="string">"&#123;F11&#125;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        alert(<span class="string">"切换失败,可尝试Esc退出"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="9、requestAnimationFrame：window动画"><a href="#9、requestAnimationFrame：window动画" class="headerlink" title="9、requestAnimationFrame：window动画"></a>9、<code>requestAnimationFrame</code>：<code>window</code>动画</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.requestAnimationFrame = <span class="built_in">window</span>.requestAnimationFrame ||</div><div class="line">    <span class="built_in">window</span>.webkitRequestAnimationFrame ||</div><div class="line">    <span class="built_in">window</span>.mozRequestAnimationFrame ||</div><div class="line">    <span class="built_in">window</span>.msRequestAnimationFrame ||</div><div class="line">    <span class="built_in">window</span>.oRequestAnimationFrame ||</div><div class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">        <span class="comment">//为了使setTimteout的尽可能的接近每秒60帧的效果</span></div><div class="line">        <span class="built_in">window</span>.setTimeout(callback, <span class="number">1000</span> / <span class="number">60</span>);</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line"><span class="built_in">window</span>.cancelAnimationFrame = <span class="built_in">window</span>.cancelAnimationFrame ||</div><div class="line">    Window.webkitCancelAnimationFrame ||</div><div class="line">    <span class="built_in">window</span>.mozCancelAnimationFrame ||</div><div class="line">    <span class="built_in">window</span>.msCancelAnimationFrame ||</div><div class="line">    <span class="built_in">window</span>.oCancelAnimationFrame ||</div><div class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</div><div class="line">        <span class="comment">//为了使setTimteout的尽可能的接近每秒60帧的效果</span></div><div class="line">        <span class="built_in">window</span>.clearTimeout(id);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="10、Object-keys：返回一个由一个给定对象的自身可枚举属性组成的数组"><a href="#10、Object-keys：返回一个由一个给定对象的自身可枚举属性组成的数组" class="headerlink" title="10、Object.keys：返回一个由一个给定对象的自身可枚举属性组成的数组"></a>10、<code>Object.keys</code>：返回一个由一个给定对象的自身可枚举属性组成的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.keys = <span class="built_in">Object</span>.keys || <span class="function"><span class="keyword">function</span> <span class="title">keys</span>(<span class="params">object</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(object === <span class="literal">null</span> || object === <span class="literal">undefined</span>)&#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Cannot convert undefined or null to object'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> result = []</div><div class="line">    <span class="keyword">if</span>(isArrayLike(object) || isPlainObject(object))&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> object) &#123;</div><div class="line">            object.hasOwnProperty(key) &amp;&amp; ( result.push(key) )</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="11、Object-values：返回一个给定对象自身的所有可枚举属性值的数组"><a href="#11、Object-values：返回一个给定对象自身的所有可枚举属性值的数组" class="headerlink" title="11、Object.values：返回一个给定对象自身的所有可枚举属性值的数组"></a>11、<code>Object.values</code>：返回一个给定对象自身的所有可枚举属性值的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.values = <span class="built_in">Object</span>.values || <span class="function"><span class="keyword">function</span> <span class="title">values</span>(<span class="params">object</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(object === <span class="literal">null</span> || object === <span class="literal">undefined</span>)&#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Cannot convert undefined or null to object'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> result = []</div><div class="line">    <span class="keyword">if</span>(isArrayLike(object) || isPlainObject(object))&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> object) &#123;</div><div class="line">            object.hasOwnProperty(key) &amp;&amp; ( result.push(object[key]) )</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="12、arr-includes：用来判断一个数组是否包含一个指定的值，如果是返回-true，否则false，可指定开始查询的位置"><a href="#12、arr-includes：用来判断一个数组是否包含一个指定的值，如果是返回-true，否则false，可指定开始查询的位置" class="headerlink" title="12、arr.includes：用来判断一个数组是否包含一个指定的值，如果是返回 true，否则false，可指定开始查询的位置"></a>12、<code>arr.includes</code>：用来判断一个数组是否包含一个指定的值，如果是返回 <code>true</code>，否则<code>false</code>，可指定开始查询的位置</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.includes = <span class="built_in">Array</span>.prototype.includes || <span class="function"><span class="keyword">function</span> <span class="title">includes</span>(<span class="params">value, start</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> ctx = <span class="keyword">this</span></div><div class="line">    <span class="keyword">let</span> length = ctx.length;</div><div class="line">    </div><div class="line">    start = <span class="built_in">parseInt</span>(start)</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">isNaN</span>(start))&#123;</div><div class="line">        start = <span class="number">0</span></div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (start &lt; <span class="number">0</span>) &#123;</div><div class="line">        start = -start &gt; length ? <span class="number">0</span> : (length + start);</div><div class="line">      &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> index = ctx.indexOf(value)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> index &gt;= start;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="13、arr-find：返回数组中通过测试（函数fn内判断）的第一个元素的值"><a href="#13、arr-find：返回数组中通过测试（函数fn内判断）的第一个元素的值" class="headerlink" title="13、arr.find：返回数组中通过测试（函数fn内判断）的第一个元素的值"></a>13、<code>arr.find</code>：返回数组中通过测试（函数<code>fn</code>内判断）的第一个元素的值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.find = <span class="built_in">Array</span>.prototype.find || <span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">fn, ctx</span>)</span>&#123;</div><div class="line">    fn = fn.bind(ctx)</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> result;</div><div class="line">    <span class="keyword">this</span>.some(<span class="function">(<span class="params">value, index, arr</span>), <span class="params">thisValue</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">return</span> fn(value, index, arr) ? (result = value, <span class="literal">true</span>) : <span class="literal">false</span></div><div class="line">    &#125;)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="14、arr-findIndex-：返回数组中通过测试（函数fn内判断）的第一个元素的下标"><a href="#14、arr-findIndex-：返回数组中通过测试（函数fn内判断）的第一个元素的下标" class="headerlink" title="14、arr.findIndex ：返回数组中通过测试（函数fn内判断）的第一个元素的下标"></a>14、<code>arr.findIndex</code> ：返回数组中通过测试（函数<code>fn</code>内判断）的第一个元素的下标</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.findIndex = <span class="built_in">Array</span>.prototype.findIndex || <span class="function"><span class="keyword">function</span> <span class="title">findIndex</span>(<span class="params">fn, ctx</span>)</span>&#123;</div><div class="line">    fn = fn.bind(ctx)</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> result;</div><div class="line">    <span class="keyword">this</span>.some(<span class="function">(<span class="params">value, index, arr</span>), <span class="params">thisValue</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">return</span> fn(value, index, arr) ? (result = index, <span class="literal">true</span>) : <span class="literal">false</span></div><div class="line">    &#125;)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="15、performance-timing：利用performance-timing进行性能分析"><a href="#15、performance-timing：利用performance-timing进行性能分析" class="headerlink" title="15、performance.timing：利用performance.timing进行性能分析"></a>15、<code>performance.timing</code>：利用<code>performance.timing</code>进行性能分析</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">let</span> t = performance.timing</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'DNS查询耗时 ：'</span> + (t.domainLookupEnd - t.domainLookupStart).toFixed(<span class="number">0</span>))</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'TCP链接耗时 ：'</span> + (t.connectEnd - t.connectStart).toFixed(<span class="number">0</span>))</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'request请求耗时 ：'</span> + (t.responseEnd - t.responseStart).toFixed(<span class="number">0</span>))</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'解析dom树耗时 ：'</span> + (t.domComplete - t.domInteractive).toFixed(<span class="number">0</span>))</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'白屏时间 ：'</span> + (t.responseStart - t.navigationStart).toFixed(<span class="number">0</span>))</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'domready时间 ：'</span> + (t.domContentLoadedEventEnd - t.navigationStart).toFixed(<span class="number">0</span>))</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'onload时间 ：'</span> + (t.loadEventEnd - t.navigationStart).toFixed(<span class="number">0</span>))</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(t = performance.memory)&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'js内存使用占比 ：'</span> + (t.usedJSHeapSize / t.totalJSHeapSize * <span class="number">100</span>).toFixed(<span class="number">2</span>) + <span class="string">'%'</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">html标签</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具函数</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/10/17/JS开发常用工具函数/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/10/17/Vue初体验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue初体验</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+  <!--PC版-->
+<div id="SOHUCS" sid="JS开发常用工具函数" style="padding: 0 30px 0 46px!important;"></div> 
+<script type="text/javascript">
+(function(){ 
+var appid = 'cyt2iWicw'; 
+var conf = 'prod_30a10978ab519b2dbe5ecf0af6e85732'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
 
+  
+
+  
 
           </div>
         </div>
@@ -229,8 +354,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
