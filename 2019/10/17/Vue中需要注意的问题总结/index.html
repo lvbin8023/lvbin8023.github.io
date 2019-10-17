@@ -22,7 +22,10 @@
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484497.png">
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484498.png">
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484499.png">
-<meta property="og:updated_time" content="2019-10-17T09:16:52.321Z">
+<meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484501.png">
+<meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484502.png">
+<meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484503.png">
+<meta property="og:updated_time" content="2019-10-17T09:58:32.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue中需要注意的问题总结">
 <meta name="twitter:description" content="使用vue的时候经常会遇到一些问题，虽然阅读查阅官方文档，就会发现文档中把一些需要注意的点都提到了。为了深入能对文档的知识点进行理解，通过查阅网上的资料，并通过实例展示以便自己在项目中编写代码能够更有效率。 1、组件中，为什么data必须是一个函数vue中的data为对象，是引用类型，当重用组件时，一个组件对data做更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新对">
@@ -209,6 +212,30 @@
 <p><img src="//lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484499.png" alt=""></p>
 <p>有时你想向已有对象上添加一些属性，例如使用<code>Object.assign()</code>或<code>_.extend()</code>方法来添加属性。但是，添加到对象上的新属性不会触发更新。在这种情况下可以创建一个新的对象，让它包含原对象的属性和新的属性： </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 代替 Object.assign(this.obj, &#123; a: 1, e: 2 &#125;)</span></div><div class="line"><span class="keyword">this</span>.obj= <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.obj, &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">e</span>: <span class="number">2</span> &#125;)</div></pre></td></tr></table></figure>
+<h4 id="3、vue生命周期详解"><a href="#3、vue生命周期详解" class="headerlink" title="3、vue生命周期详解"></a>3、<code>vue</code>生命周期详解</h4><p><code>vue</code>的生命周期：</p>
+<ul>
+<li><code>beforeCreate</code>：组件实例刚刚被创建,组件属性计算之前,如data属性</li>
+<li><code>created</code>：组件实例创建完成,属性已绑定,但是DOM还未完成,$el属性还不存在</li>
+<li><code>beforeMount</code>：模板编译/挂载之前</li>
+<li><code>mounted</code>：模板编译/挂载之后</li>
+<li><code>beforeUpdate</code>：组件更新之前</li>
+<li><code>updated</code>：组件更新之后</li>
+<li><code>activated</code>：for <code>keep-alive</code>,组件被激活时调用</li>
+<li><code>deactivated</code>：for <code>keep-alive</code>,组件被移除时调用</li>
+<li><code>beforeDestroy</code>：组件销毁前被调用</li>
+<li><code>destoryed</code>：组件销毁后调用</li>
+</ul>
+<p>实例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;</div><div class="line">    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;app&quot;&gt;&#123;&#123;a&#125;&#125;&lt;/div&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">    var vm = new Vue(&#123;</div><div class="line">        el: &apos;#app&apos;,</div><div class="line">        data: &#123;</div><div class="line">            a: &apos;vuejs&apos;,</div><div class="line">        &#125;,</div><div class="line">        methods: &#123;</div><div class="line">            // get~ 销毁组件</div><div class="line">            destroyElement() &#123;</div><div class="line">                this.$destroy(true);</div><div class="line">                this.$el.parentNode.removeChild(this.$el);</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        beforeCreate: function() &#123;</div><div class="line">            console.log(&apos;创建前&apos;);</div><div class="line">            console.log(this.a);</div><div class="line">            console.log(this.$el);</div><div class="line">        &#125;,</div><div class="line">        created: function() &#123;</div><div class="line">            console.log(&apos;创建之后&apos;);</div><div class="line">            console.log(this.a);</div><div class="line">            console.log(this.$el);</div><div class="line">        &#125;,</div><div class="line">        beforeMount: function() &#123;</div><div class="line">            console.log(&apos;mount之前&apos;);</div><div class="line">            console.log(this.a);</div><div class="line">            console.log(this.$el);</div><div class="line">        &#125;,</div><div class="line">        mounted: function() &#123;</div><div class="line">            console.log(&apos;mount之后&apos;);</div><div class="line">            console.log(this.a);</div><div class="line">            console.log(this.$el);</div><div class="line">        &#125;,</div><div class="line">        beforeUpdate: function() &#123;</div><div class="line">            console.log(&apos;更新之前&apos;);</div><div class="line">            console.log(this.a);</div><div class="line">            console.log(this.$el);</div><div class="line">        &#125;,</div><div class="line">        updated: function() &#123;</div><div class="line">            console.log(&apos;更新完成&apos;);</div><div class="line">            console.log(this.a);</div><div class="line">            console.log(this.$el);</div><div class="line">        &#125;,</div><div class="line">        beforeDestroy: function() &#123;</div><div class="line">            console.log(&apos;组件销毁之前&apos;);</div><div class="line">            console.log(this.a);</div><div class="line">            console.log(this.$el);</div><div class="line">        &#125;,</div><div class="line">        destroyed: function() &#123;</div><div class="line">            console.log(&apos;组件销毁之后&apos;);</div><div class="line">            console.log(this.a);</div><div class="line">            console.log(this.$el);</div><div class="line">        &#125;,</div><div class="line">    &#125;)</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p> <code>beforeCreated</code>：el和data并未初始化<br><code>created</code>：完成data数据的初始化,el没有<br><code>beforeMount</code>：完成了el和data初始化<br><code>mounted</code>：完成挂载 </p>
+</blockquote>
+<p><img src="//lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484501.png" alt=""></p>
+<p>打开命令行在命令行中输入<code>vm.a = &#39;change&#39;;</code>查看效果：</p>
+<p><img src="//lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484502.png" alt=""></p>
+<p>打开命令行在命令行中输入<code>vm.destroyElement();</code>查看效果：</p>
+<p><img src="//lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484503.png" alt=""></p>
+<p>可以看到页面<code>id</code>为<code>app</code>的节点已经被删除了。</p>
 
       
 
@@ -473,15 +500,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JavaScript简史</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">github pages</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JavaScript简史</a>
               </li>
              
               <li class="article-tag-list-item">
