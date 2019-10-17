@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="https://lvbin8023.github.io">
   <title>Vue中需要注意的问题总结 | skyuyuni</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用vue的时候经常会遇到一些问题，虽然阅读查阅官方文档，就会发现文档中把一些需要注意的点都提到了。为了深入能对文档的知识点进行理解，通过查阅网上的资料，并通过实例展示以便自己在项目中编写代码能够更有效率。 1、组件中，为什么data必须是一个函数vue中的data为对象，是引用类型，当重用组件时，一个组件对data做了更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新">
+  <meta name="description" content="使用vue的时候经常会遇到一些问题，虽然阅读查阅官方文档，就会发现文档中把一些需要注意的点都提到了。为了深入能对文档的知识点进行理解，通过查阅网上的资料，并通过实例展示以便自己在项目中编写代码能够更有效率。 1、组件中，为什么data必须是一个函数vue中的data为对象，是引用类型，当重用组件时，一个组件对data做更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新对">
 <meta name="keywords" content="Vue,总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue中需要注意的问题总结">
 <meta property="og:url" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/index.html">
 <meta property="og:site_name" content="skyuyuni">
-<meta property="og:description" content="使用vue的时候经常会遇到一些问题，虽然阅读查阅官方文档，就会发现文档中把一些需要注意的点都提到了。为了深入能对文档的知识点进行理解，通过查阅网上的资料，并通过实例展示以便自己在项目中编写代码能够更有效率。 1、组件中，为什么data必须是一个函数vue中的data为对象，是引用类型，当重用组件时，一个组件对data做了更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新">
+<meta property="og:description" content="使用vue的时候经常会遇到一些问题，虽然阅读查阅官方文档，就会发现文档中把一些需要注意的点都提到了。为了深入能对文档的知识点进行理解，通过查阅网上的资料，并通过实例展示以便自己在项目中编写代码能够更有效率。 1、组件中，为什么data必须是一个函数vue中的data为对象，是引用类型，当重用组件时，一个组件对data做更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新对">
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484494.png">
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484495.png">
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484496.png">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484497.png">
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484498.png">
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484499.png">
-<meta property="og:updated_time" content="2019-10-17T09:03:43.984Z">
+<meta property="og:updated_time" content="2019-10-17T09:08:37.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue中需要注意的问题总结">
-<meta name="twitter:description" content="使用vue的时候经常会遇到一些问题，虽然阅读查阅官方文档，就会发现文档中把一些需要注意的点都提到了。为了深入能对文档的知识点进行理解，通过查阅网上的资料，并通过实例展示以便自己在项目中编写代码能够更有效率。 1、组件中，为什么data必须是一个函数vue中的data为对象，是引用类型，当重用组件时，一个组件对data做了更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新">
+<meta name="twitter:description" content="使用vue的时候经常会遇到一些问题，虽然阅读查阅官方文档，就会发现文档中把一些需要注意的点都提到了。为了深入能对文档的知识点进行理解，通过查阅网上的资料，并通过实例展示以便自己在项目中编写代码能够更有效率。 1、组件中，为什么data必须是一个函数vue中的data为对象，是引用类型，当重用组件时，一个组件对data做更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新对">
 <meta name="twitter:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484494.png">
   
     <link rel="alternative" href="/atom.xml" title="skyuyuni" type="application/atom+xml">
@@ -187,7 +187,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>使用<code>vue</code>的时候经常会遇到一些问题，虽然阅读查阅官方文档，就会发现文档中把一些需要注意的点都提到了。为了深入能对文档的知识点进行理解，通过查阅网上的资料，并通过实例展示以便自己在项目中编写代码能够更有效率。</p>
-<h4 id="1、组件中，为什么data必须是一个函数"><a href="#1、组件中，为什么data必须是一个函数" class="headerlink" title="1、组件中，为什么data必须是一个函数"></a>1、组件中，为什么<code>data</code>必须是一个函数</h4><p><code>vue</code>中的<code>data</code>为对象，是引用类型，当重用组件时，一个组件对<code>data</code>做了更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新对象，引用地址不用，所以就不会出现问题。 <a id="more"></a></p>
+<h4 id="1、组件中，为什么data必须是一个函数"><a href="#1、组件中，为什么data必须是一个函数" class="headerlink" title="1、组件中，为什么data必须是一个函数"></a>1、组件中，为什么<code>data</code>必须是一个函数</h4><p><code>vue</code>中的<code>data</code>为对象，是引用类型，当重用组件时，一个组件对<code>data</code>做更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新对象，引用地址不用，所以就不会出现问题。 <a id="more"></a></p>
 <h4 id="2、Vue中-set的使用场景"><a href="#2、Vue中-set的使用场景" class="headerlink" title="2、Vue中$set的使用场景"></a>2、<code>Vue</code>中<code>$set</code>的使用场景</h4><p>当<code>vue</code>的<code>data</code>里边声明或者已经赋值过的对象或者数组（数组里边的值是对象）时，向对象或数组中添加新的属性，如果更新此属性的值，是不会更新视图的。</p>
 <p>根据官方文档定义：<strong>如果在实例创建之后添加新的属性到实例上，它不会触发视图更新</strong>。</p>
 <p>由于<code>vue</code>会在初始化实例时对属性执行<code>getter/setter</code>转化过程，所以属性必须在 data 对象上存在才能让<code>vue</code>转换它，这样才能让它是响应的。 </p>
@@ -445,27 +445,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sync</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Await</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,6 +490,26 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科幻电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Sync</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Await</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
             
             <div class="clearfix"></div>
