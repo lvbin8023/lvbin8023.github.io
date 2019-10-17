@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484497.png">
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484498.png">
 <meta property="og:image" content="https://lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484499.png">
-<meta property="og:updated_time" content="2019-10-17T09:09:07.275Z">
+<meta property="og:updated_time" content="2019-10-17T09:16:52.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue中需要注意的问题总结">
 <meta name="twitter:description" content="使用vue的时候经常会遇到一些问题，虽然阅读查阅官方文档，就会发现文档中把一些需要注意的点都提到了。为了深入能对文档的知识点进行理解，通过查阅网上的资料，并通过实例展示以便自己在项目中编写代码能够更有效率。 1、组件中，为什么data必须是一个函数vue中的data为对象，是引用类型，当重用组件时，一个组件对data做更改，那另一个组件也会跟着改，而使用返回一个函数返回数据，则每次返回都是一个新对">
@@ -192,7 +192,7 @@
 <p>根据官方文档定义：<strong>如果在实例创建之后添加新的属性到实例上，它不会触发视图更新</strong>。</p>
 <p>由于<code>vue</code>会在初始化实例时对属性执行<code>getter/setter</code>转化过程，所以属性必须在 data 对象上存在才能让<code>vue</code>转换它，这样才能让它是响应的。 </p>
 <p>以下是实例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">     &lt;div&gt;</div><div class="line">    &lt;p @click=&quot;addd(obj)&quot;&gt;&#123;&#123;obj.d&#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;p @click=&quot;adde(obj)&quot;&gt; &#123;&#123;obj.e&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line"> &lt;script&gt;</div><div class="line">  export default &#123;</div><div class="line">      data()&#123;</div><div class="line">            return &#123;</div><div class="line">                obj:&#123;&#125;</div><div class="line">            &#125;</div><div class="line">      &#125;,</div><div class="line">      mounted() &#123;</div><div class="line">        this.obj = &#123;d: 0&#125;;</div><div class="line">        this.obj.e = 0;</div><div class="line">        console.log(&apos;after--&apos;, this.obj);</div><div class="line">      &#125;,</div><div class="line">     methods: &#123;</div><div class="line">        addd(item) &#123;</div><div class="line">            item.d = item.d + 1;</div><div class="line">            console.log(&apos;item--&apos;,item);</div><div class="line">        &#125;,</div><div class="line">        adde(item) &#123;</div><div class="line">            item.e = item.e + 1;</div><div class="line">            console.log(&apos;item--&apos;,item);</div><div class="line">        &#125;</div><div class="line">       &#125;</div><div class="line">  &#125;</div><div class="line"> &lt;/scirpt&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;p @click=&quot;addd(obj)&quot;&gt;&#123;&#123;obj.d&#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;p @click=&quot;adde(obj)&quot;&gt; &#123;&#123;obj.e&#125;&#125;&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">  export default &#123;</div><div class="line">      data()&#123;</div><div class="line">            return &#123;</div><div class="line">                obj:&#123;&#125;</div><div class="line">            &#125;</div><div class="line">      &#125;,</div><div class="line">      mounted() &#123;</div><div class="line">        this.obj = &#123;d: 0&#125;;</div><div class="line">        this.obj.e = 0;</div><div class="line">        console.log(&apos;after--&apos;, this.obj);</div><div class="line">      &#125;,</div><div class="line">     methods: &#123;</div><div class="line">        addd(item) &#123;</div><div class="line">            item.d = item.d + 1;</div><div class="line">            console.log(&apos;item--&apos;,item);</div><div class="line">        &#125;,</div><div class="line">        adde(item) &#123;</div><div class="line">            item.e = item.e + 1;</div><div class="line">            console.log(&apos;item--&apos;,item);</div><div class="line">        &#125;</div><div class="line">       &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/scirpt&gt;</div></pre></td></tr></table></figure>
 <p><img src="//lvbin8023.github.io/2019/10/17/Vue中需要注意的问题总结/1571299484494.png" alt=""></p>
 <p>从控制台打印出的信息看，对象属性<code>b</code>是有<code>get</code>和<code>set</code>方法的，而新增的对象属性<code>e</code>是没有的。</p>
 <p>分别点击触发3次<code>addd</code>和<code>adde</code>，页面效果及控制台打印信息效果如下：</p>
@@ -493,15 +493,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">html标签</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">工具函数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">html标签</a>
               </li>
              
               <li class="article-tag-list-item">
