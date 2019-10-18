@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lvbin8023.github.io">
-  <title>Archives: 2017/6 | skyuyuni</title>
+  <title>Vue组件通信的基本使用 | skyuyuni</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="skyuyuni">
-<meta property="og:url" content="https://lvbin8023.github.io/archives/2017/06/index.html">
+  <meta name="description" content="1、父子通信 - 通过prop 向子组件传递数据使用props传递数据作用域是孤立的，它是父组件通过模板传递而来，想接收到父组件传来的数据，可以通过props选项来进行接收。">
+<meta name="keywords" content="Vue,组件通信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue组件通信的基本使用">
+<meta property="og:url" content="https://lvbin8023.github.io/2019/10/18/Vue组件通信的基本使用/index.html">
 <meta property="og:site_name" content="skyuyuni">
+<meta property="og:description" content="1、父子通信 - 通过prop 向子组件传递数据使用props传递数据作用域是孤立的，它是父组件通过模板传递而来，想接收到父组件传来的数据，可以通过props选项来进行接收。">
+<meta property="og:updated_time" content="2019-10-18T08:47:30.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="skyuyuni">
+<meta name="twitter:title" content="Vue组件通信的基本使用">
+<meta name="twitter:description" content="1、父子通信 - 通过prop 向子组件传递数据使用props传递数据作用域是孤立的，它是父组件通过模板传递而来，想接收到父组件传来的数据，可以通过props选项来进行接收。">
   
     <link rel="alternative" href="/atom.xml" title="skyuyuni" type="application/atom+xml">
   
@@ -153,61 +158,185 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Vue组件通信的基本使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/14/new-article-1/" class="archive-article-date">
-  	<time datetime="2017-06-14T02:16:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/14/new-article-1/">《JavaScript DOM编程艺术》整理笔记!</a>
+    <h1 class="article-title" itemprop="name">
+      Vue组件通信的基本使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/18/Vue组件通信的基本使用/" class="archive-article-date">
+  	<time datetime="2019-10-18T07:44:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1、父子通信-通过prop-向子组件传递数据"><a href="#1、父子通信-通过prop-向子组件传递数据" class="headerlink" title="1、父子通信 - 通过prop 向子组件传递数据"></a>1、父子通信 - 通过prop 向子组件传递数据</h4><p>使用<code>props</code>传递数据作用域是孤立的，它是父组件通过模板传递而来，想接收到父组件传来的数据，可以通过<code>props选项</code>来进行接收。<a id="more"></a> </p>
+<p>父组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">   &lt;div&gt;</div><div class="line">      &lt;demo :msg=&apos;msgData&apos; :math = &apos;mathData&apos;&gt;&lt;/demo&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">import Demo from &apos;./Demo.vue&apos;</div><div class="line">   export default &#123;</div><div class="line">     data () &#123;</div><div class="line">       return  &#123;</div><div class="line">          msgData:&apos;从父组件接收来的数据&apos;,</div><div class="line">          mathData : 2</div><div class="line">       &#125;</div><div class="line">     &#125;,</div><div class="line">     components : &#123;</div><div class="line">       Demo</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>子组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">     &lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;</div><div class="line">     &lt;p&gt;&#123;&#123;math&#125;&#125;&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  name: &apos;demo&apos;,</div><div class="line">  props: [&apos;msg&apos; , &apos;math&apos;],</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>在子组件中需要通过显示定义好需要从父组件中接收那些数据。</p>
+<p>同样的在父组件中在子组件模板中过<code>v-bind</code>来传递子组件中需要显示接收的数据。</p>
+<p>语法： <code>：== v-bind</code>(是封装的语法糖) ：<code>msg = msgData</code></p>
+<ul>
+<li><code>msg</code>第一个参数必须要与子组件的<code>props</code>同名</li>
+<li><code>msgData</code>则是父组件中需要向子组传递的数据</li>
+</ul>
+<p><code>props</code>可以显示定义一个或一个以上的数据，对于接收的数据，可以是各种数据类型，同样也可以传递一个函数。 </p>
+<p>在 data 选项中，当前实例（当前组件中改动）可以<code>任意改变data选项里的数据</code>，<code>Vue</code>传递数据时是基于<code>数据单向流动</code>，子组件不能改变当前实例中的 props 任何属性，需要通知父组件改变相应的值，重新改变。 </p>
+<h4 id="2、父子通信-通过-emit和-on向父组件传递数据"><a href="#2、父子通信-通过-emit和-on向父组件传递数据" class="headerlink" title="2、父子通信 - 通过$emit和$on向父组件传递数据"></a>2、父子通信 - 通过<code>$emit</code>和<code>$on</code>向父组件传递数据</h4><p> 父组件使用 <code>$on(eventName)</code> 监听事件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">   &lt;div&gt;</div><div class="line">      &lt;demo @listen = &apos;getMsg&apos;&gt;&lt;/demo&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">import Demo from &apos;./Demo.vue&apos;</div><div class="line">   export default &#123;</div><div class="line">     data () &#123;</div><div class="line">       return  &#123;</div><div class="line">          msg: &apos;&apos;</div><div class="line">       &#125;</div><div class="line">     &#125;,</div><div class="line">     components : &#123;</div><div class="line">       Demo</div><div class="line">     &#125;,</div><div class="line">     methods : &#123;</div><div class="line">      getMsg (data) &#123;</div><div class="line">         this.msg = data</div><div class="line">      &#125;</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>子组件使用 <code>$emit(eventName)</code> 触发事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">   &lt;div&gt;</div><div class="line">      &lt;demo @click = &apos;childMsg&apos;&gt;&lt;/demo&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">import Demo from &apos;./Demo.vue&apos;</div><div class="line">   export default &#123;</div><div class="line">     data () &#123;</div><div class="line">       return  &#123;</div><div class="line">          msg: [&apos;fish&apos;,true,&#123;name:&apos;vue&apos;,verison:&apos;2.4&apos;&#125;]</div><div class="line">       &#125;</div><div class="line">     &#125;,</div><div class="line">     components : &#123;</div><div class="line">       Demo</div><div class="line">     &#125;,</div><div class="line">     methods : &#123;</div><div class="line">      childMsg () &#123;</div><div class="line">         this.$emit(&apos;listen&apos;, this.msg)</div><div class="line">      &#125;</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="3、非父子通信-通过eventBus传递数据"><a href="#3、非父子通信-通过eventBus传递数据" class="headerlink" title="3、非父子通信 - 通过eventBus传递数据"></a>3、非父子通信 - 通过<code>eventBus</code>传递数据</h4><p>公共事件总线<code>eventBus</code>的实质就是创建一个<code>vue</code>实例，通过一个空的<code>vue</code>实例作为桥梁实现<code>vue</code>组件间的通信。它是实现非父子组件通信的一种解决方案。</p>
+<p>第一步：项目中创建一个<code>js</code>文件（我通常给它取个名字为<code>bus.js</code>），引入<code>vue</code>，创建一个<code>vue</code>实例，导出这个实例，代码如下（一共就两行）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'Vue'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vue</div></pre></td></tr></table></figure>
+<p>第二步：在需要通信的组件中分别引入这个bus.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Bus <span class="keyword">from</span> <span class="string">'这里是你引入bus.js的路径'</span> <span class="comment">// Bus可自由更换喜欢的名字</span></div></pre></td></tr></table></figure>
+<p>第三步：传递数据的组件里通过<code>vue</code>实例方法<code>$emit</code>发送事件名称和需要传递的数据。(发送数据组件) </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Bus.$emit(<span class="string">'click'</span>, data) <span class="comment">// 这个click是一个自定义的事件名称，data就是你要传递的数据。</span></div></pre></td></tr></table></figure>
+<p>第四步：被传递数据的组件内通过<code>vue</code>实例方法<code>$on</code>监听到事件和接受到数据。（接收数据的组件）这里通常挂载监听在<code>vue</code>生命周期<code>created</code>和<code>mounted</code>当中的一个，具体使用场景需要具体的分析</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Bus.$on(<span class="string">'click'</span>, target =&gt; &#123;</div><div class="line">  <span class="built_in">console</span>.log(target)　　<span class="comment">//　注意：发送和监听的事件名称必须一致，target就是获取的数据，可以不写target。只要你喜欢叫什么都可以（当然了，这一定要符合形参变量的命名规范）</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>通过以上的四步其实就已经实现了最简单的<code>eventbus</code>的实际应用了。 </p>
+<p>但是到这儿后，一定要注意一个最容易忽视，又必然不能忘记的东西，那就是<strong>清除事件总线<code>eventBus</code></strong> </p>
+<p>第五步：在<code>vue</code>生命周期<code>beforeDestroy</code>或者<code>destroyed</code>中用<code>vue</code>实例的$off方法清除<code>eventBus</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">beforeDestroy () &#123;</div><div class="line">  bus.$off(<span class="string">'click'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>总结一下，这里只是介绍如何使用<code>eventBus</code>来解决非父子组件通信，但是当项目较大较复杂时，并不适合。到那时，<code>vuex</code>才是<code>vue</code>给我们提供的最理想的方式。 </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DOM编程艺术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">组件通信</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://lvbin8023.github.io/2019/10/18/Vue组件通信的基本使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/10/17/Vue中需要注意的问题总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue中需要注意的问题总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
 
+  
 
           </div>
         </div>
@@ -229,8 +358,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
