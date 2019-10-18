@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://lvbin8023.github.io/2019/10/18/Vue组件通信的基本使用/index.html">
 <meta property="og:site_name" content="skyuyuni">
 <meta property="og:description" content="1、父子通信 - 通过prop 向子组件传递数据使用props传递数据作用域是孤立的，它是父组件通过模板传递而来，想接收到父组件传来的数据，可以通过props选项来进行接收。">
-<meta property="og:updated_time" content="2019-10-18T08:47:30.440Z">
+<meta property="og:updated_time" content="2019-10-18T08:49:11.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue组件通信的基本使用">
 <meta name="twitter:description" content="1、父子通信 - 通过prop 向子组件传递数据使用props传递数据作用域是孤立的，它是父组件通过模板传递而来，想接收到父组件传来的数据，可以通过props选项来进行接收。">
@@ -197,6 +197,7 @@
 <p>子组件使用 <code>$emit(eventName)</code> 触发事件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">   &lt;div&gt;</div><div class="line">      &lt;demo @click = &apos;childMsg&apos;&gt;&lt;/demo&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">import Demo from &apos;./Demo.vue&apos;</div><div class="line">   export default &#123;</div><div class="line">     data () &#123;</div><div class="line">       return  &#123;</div><div class="line">          msg: [&apos;fish&apos;,true,&#123;name:&apos;vue&apos;,verison:&apos;2.4&apos;&#125;]</div><div class="line">       &#125;</div><div class="line">     &#125;,</div><div class="line">     components : &#123;</div><div class="line">       Demo</div><div class="line">     &#125;,</div><div class="line">     methods : &#123;</div><div class="line">      childMsg () &#123;</div><div class="line">         this.$emit(&apos;listen&apos;, this.msg)</div><div class="line">      &#125;</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <h4 id="3、非父子通信-通过eventBus传递数据"><a href="#3、非父子通信-通过eventBus传递数据" class="headerlink" title="3、非父子通信 - 通过eventBus传递数据"></a>3、非父子通信 - 通过<code>eventBus</code>传递数据</h4><p>公共事件总线<code>eventBus</code>的实质就是创建一个<code>vue</code>实例，通过一个空的<code>vue</code>实例作为桥梁实现<code>vue</code>组件间的通信。它是实现非父子组件通信的一种解决方案。</p>
+<p>然后在组件中，可以使用$emit， $on， $off 分别来分发、监听、取消监听事件： </p>
 <p>第一步：项目中创建一个<code>js</code>文件（我通常给它取个名字为<code>bus.js</code>），引入<code>vue</code>，创建一个<code>vue</code>实例，导出这个实例，代码如下（一共就两行）：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'Vue'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vue</div></pre></td></tr></table></figure>
 <p>第二步：在需要通信的组件中分别引入这个bus.js</p>
@@ -439,10 +440,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">组件通信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
              
@@ -463,6 +460,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">组件通信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
@@ -471,19 +476,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JavaScript简史</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对象属性</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">函数编写</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JavaScript简史</a>
               </li>
              
               <li class="article-tag-list-item">
